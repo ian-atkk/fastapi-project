@@ -1,0 +1,18 @@
+[tools]
+node = "24"
+python = "3.15.2"
+uv = "0.13.7"
+
+[env]
+NODE_ENV = "development"
+
+[settings]
+lockfile = true
+
+[tasks.versions]
+description = "Show managed tool versions"
+run = '''
+node --version
+python --version
+uv --version
+'''
