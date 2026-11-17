@@ -20,3 +20,10 @@ uv --version
 [tasks.dev]
 description = "Run the FastAPI app with uvicorn"
 run = "uv run uvicorn main:app --reload --port 8001"
+
+[tasks.python_check]
+description = "Run ty and ruff to check python code"
+run = '''
+mise exec -- uv run ruff check
+mise exec -- uv run ty check
+'''
