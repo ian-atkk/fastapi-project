@@ -9,4 +9,10 @@ FastAPI Project Reproduction
 Github Runner and automate mise, ty, ruff check
 - installed ty and ruff
 - wrote project-runner.yml as github actions
-    - confirmed that failure happened when bad code is pushed
+    - confirmed that runs result in failure when bad code(code that doesn't pass ruff/ty) is pushed
+
+Add Shellcheck(Shell Script) and cocogitto (commit history checks)
+- install shellcheck: mise use shellcheck@0.11.0
+    - use: mise exec -- shellcheck script.sh 
+- install cocogitto: mise use cocogitto@7.0.0
+    - use: mise exec -- cog check

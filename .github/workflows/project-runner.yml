@@ -32,3 +32,9 @@ jobs:
 
       - name: Run ty
         run: mise exec -- uv run ty check
+        
+      - name: Run ShellCheck
+        run: mise exec -- shellcheck scripts/*.sh
+
+      - name: Check commit messages
+        run: mise exec -- cog check
