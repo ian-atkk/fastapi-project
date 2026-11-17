@@ -27,4 +27,4 @@ Add Syft(SBOM generator) and Grype (The Vulnerability Scanner)
 
 Comments: For the sbom/vulnerability check, the SBOM will be created before release, and will potentially be uploaded to github and pulled every week and checked with the database. Ig this is supposed to be automated? The other format/lint checks should be done when a pr is made or main is pushed. 
 
-- added release-sbom runner to install mise, generate sbom, then run a vulnerability scan and save the results as an artifact.
+- added release-sbom runner to install mise, generate sbom, then run a vulnerability scan and save the results.json as an artifact.
