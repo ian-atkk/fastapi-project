@@ -19,4 +19,4 @@ uv --version
 
 [tasks.dev]
 description = "Run the FastAPI app with uvicorn"
-run = "uv run uvicorn main:app --reload"
+run = "uv run uvicorn main:app --reload --port 8001"
