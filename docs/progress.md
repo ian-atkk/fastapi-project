@@ -15,4 +15,6 @@ Add Shellcheck(Shell Script) and cocogitto (commit history checks)
 - install shellcheck: mise use shellcheck@0.11.0
     - use: mise exec -- shellcheck script.sh 
 - install cocogitto: mise use cocogitto@7.0.0
-    - use: mise exec -- cog check
+    - use: mise exec -- cog check  
+- confirmed it works locally
+- added to github actions and confirm workflow fails with bad commit msg, or bad shell script
