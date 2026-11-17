@@ -1,0 +1,10 @@
+[project]
+name = "mise-test-1"
+version = "0.1.0"
+description = "Minimal FastAPI app for testing reproducible dev environments"
+requires-python = ">=3.15"
+dependencies = [
+    "fastapi>=0.163.1",
+    "humanize>=4.17.0",
+    "uvicorn>=0.54.0",
+]
