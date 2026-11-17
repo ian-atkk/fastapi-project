@@ -48,6 +48,52 @@ checksum_source = "mise-versions"
 url = "https://github.com/cocogitto/cocogitto/releases/download/7.0.0/cocogitto-7.0.0-x86_64-pc-windows-msvc.tar.gz"
 url_api = "https://api.github.com/repos/cocogitto/cocogitto/releases/assets/366659399"
 
+[[tools.grype]]
+version = "0.121.3"
+backend = "aqua:anchore/grype"
+specifiers = ["0.121.3"]
+
+[tools.grype."platforms.linux-arm64"]
+checksum = "sha256:b7815598d48da78bfd16f5b98ef28e1bb09c03d34fc8c3e350f99b6ccb3c7cba"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934776"
+
+[tools.grype."platforms.linux-arm64-musl"]
+checksum = "sha256:b7815598d48da78bfd16f5b98ef28e1bb09c03d34fc8c3e350f99b6ccb3c7cba"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934776"
+
+[tools.grype."platforms.linux-x64"]
+checksum = "sha256:e9da18cc1429e786722e32161288103600efffd8e483c90761f90485bd1bec85"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934779"
+
+[tools.grype."platforms.linux-x64-musl"]
+checksum = "sha256:e9da18cc1429e786722e32161288103600efffd8e483c90761f90485bd1bec85"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934779"
+
+[tools.grype."platforms.macos-arm64"]
+checksum = "sha256:54336f2cd8cdee8b3d8ea83462561ff7fa9293498054c7c53a193db44bfea4c8"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934898"
+
+[tools.grype."platforms.macos-x64"]
+checksum = "sha256:65bfb1b3b30d32e9dab156a60003c7146e619f649992be227bf09c9ccbf44f7e"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934901"
+
+[tools.grype."platforms.windows-x64"]
+checksum = "sha256:3007a5afea25c60030a49d6c24d4e5abb6c94c0dbeed7ea303eb26df8e900c18"
+checksum_source = "mise-versions"
+url = "https://github.com/anchore/grype/releases/download/v0.121.3/grype_0.121.3_windows_amd64.zip"
+url_api = "https://api.github.com/repos/anchore/grype/releases/assets/727934913"
+
 [[tools.node]]
 version = "24.22.3"
 backend = "core:node"
@@ -166,6 +212,53 @@ checksum = "sha256:8a4e35ab0b331c85d73567b12f2a444df187f483e5079ceffa6bda1faa2e7
 checksum_source = "mise-versions"
 url = "https://github.com/koalaman/shellcheck/releases/download/v0.11.0/shellcheck-v0.11.0.zip"
 url_api = "https://api.github.com/repos/koalaman/shellcheck/releases/assets/279056944"
+
+[[tools.syft]]
+version = "1.57.1"
+backend = "aqua:anchore/syft"
+specifiers = ["1.57.1"]
+
+[tools.syft."platforms.linux-arm64"]
+checksum = "sha256:aa3d3e07344f590bcce8d31043b752daa76c8a56c2aa34ceeee63c6168152582"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815713"
+provenance = "cosign"
+
+[tools.syft."platforms.linux-arm64-musl"]
+checksum = "sha256:aa3d3e07344f590bcce8d31043b752daa76c8a56c2aa34ceeee63c6168152582"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815713"
+provenance = "cosign"
+
+[tools.syft."platforms.linux-x64"]
+checksum = "sha256:bf52519eb57f675d47c07d43213cb6dff6449f3d6d1147ff6701ed91f44eef0c"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815727"
+provenance = "cosign"
+
+[tools.syft."platforms.linux-x64-musl"]
+checksum = "sha256:bf52519eb57f675d47c07d43213cb6dff6449f3d6d1147ff6701ed91f44eef0c"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815727"
+provenance = "cosign"
+
+[tools.syft."platforms.macos-arm64"]
+checksum = "sha256:e0a74a5d2688d1254b4e17b71f068a83215e3625f846265bf6614c7ba06f3a96"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815711"
+provenance = "cosign"
+
+[tools.syft."platforms.macos-x64"]
+checksum = "sha256:2355758c1142982a67b309604c5d75effdbe638a57c771979ea8fd1a16656abc"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815705"
+provenance = "cosign"
+
+[tools.syft."platforms.windows-x64"]
+checksum = "sha256:3a01fe865076bb548352195b77e88fa4649277861ea458efe165c3a810b6dcc7"
+url = "https://github.com/anchore/syft/releases/download/v1.57.1/syft_1.57.1_windows_amd64.zip"
+url_api = "https://api.github.com/repos/anchore/syft/releases/assets/727815731"
+provenance = "cosign"
 
 [[tools.uv]]
 version = "0.13.8"
