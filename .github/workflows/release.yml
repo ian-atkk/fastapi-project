@@ -30,13 +30,16 @@ jobs:
       - name: Generate CycloneDX SBOM
         run: mise exec -- syft . -o cyclonedx-json=sbom.cdx.json
 
+      - name: Generate list of dev tools and versions
+        run: mise exec -- syft "$HOME/.local/share/mise/installs" -o cyclonedx-json=dev-tools.cdx.json
+      
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Project-SBOM
           path: |
             sbom.cdx.json
-            dist/*
+            dev-tools.cdx.json
 
       - name: Checkout central SBOM repo
         uses: actions/checkout@v4
@@ -46,16 +49,18 @@ jobs:
           ref: main
           path: central-sbom-repo
 
-      - name: Copy SBOM to central repo
+      - name: Copy SBOM and dev-tools to central repo
         run: |
           mkdir -p central-sbom-repo/fastapi-project/sboms
           cp sbom.cdx.json central-sbom-repo/fastapi-project/sboms/${{ github.ref_name }}.cdx.json
+          mkdir -p central-sbom-repo/fastapi-project/dev_tools
+          cp dev-tools.cdx.json central-sbom-repo/fastapi-project/dev_tools/${{ github.ref_name }}.cdx.json
 
-      - name: Commit and push SBOM
+      - name: Commit and push 
         working-directory: central-sbom-repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Add fastapi-project ${{ github.ref_name }} SBOM"
+          git commit -m "Add fastapi-project ${{ github.ref_name }} SBOM and tool inventory"
           git push  
