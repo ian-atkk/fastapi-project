@@ -1,0 +1,38 @@
+name: Build release and generate SBOM
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mise and project tools
+        uses: jdx/mise-action@v5
+
+      - name: Sync Python dependencies
+        run: mise exec -- uv sync --locked
+      
+      - name: Build release
+        run: mise exec -- uv build
+
+      - name: Generate CycloneDX SBOM
+        run: mise exec -- syft . -o cyclonedx-json=sbom.cdx.json
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Project-SBOM
+          path: |
+            sbom.cdx.json
+            dist/*
