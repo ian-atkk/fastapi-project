@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout project repo
+        uses: actions/checkout@v4
 
       - name: Install mise and project tools
         uses: jdx/mise-action@v5
@@ -36,3 +37,25 @@ jobs:
           path: |
             sbom.cdx.json
             dist/*
+
+      - name: Checkout central SBOM repo
+        uses: actions/checkout@v4
+        with:
+          repository: ian-atkk/central-SBOM-repo
+          token: ${{ secrets.EXTERNAL_REPO_TOKEN }}
+          ref: main
+          path: central-sbom-repo
+
+      - name: Copy SBOM to central repo
+        run: |
+          mkdir -p central-sbom-repo/fastapi-project/sboms
+          cp sbom.cdx.json central-sbom-repo/fastapi-project/sboms/${{ github.ref_name }}.cdx.json
+
+      - name: Commit and push SBOM
+        working-directory: central-sbom-repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add fastapi-project ${{ github.ref_name }} SBOM"
+          git push  
